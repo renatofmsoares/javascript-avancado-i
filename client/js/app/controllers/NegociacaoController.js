@@ -9,15 +9,15 @@ class NegociacaoController {
     adiciona(event){
         event.preventDefault();
 
-        let data = this._inputData.value
-
-        console.log(typeof data);
+        let data = new Date(...
+            this._inputData.value
+            .split('-')
+            .map(function(item,indice){
+                return item - indice % 2
+            })
+        )
+        console.log(this._inputData.value);
         console.log(data);
-
-        let data_formatada = new Date(this._inputData.value.replace(/-/g, ','));
-        console.log(typeof data_formatada);
-        console.log(data_formatada);
-
     
         // let negociacao = new Negociacao(
         //     this._inputData.value,
