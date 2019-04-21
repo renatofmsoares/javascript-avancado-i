@@ -14,7 +14,7 @@ class NegociacaoController {
         console.log(typeof data);
         console.log(data);
 
-        let data_formatada = new Date(this._inputData.value.split('-'));
+        let data_formatada = new Date(this._inputData.value.replace(/-/g, ','));
         console.log(typeof data_formatada);
         console.log(data_formatada);
 
