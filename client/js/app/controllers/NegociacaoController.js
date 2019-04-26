@@ -8,20 +8,15 @@ class NegociacaoController {
 
     adiciona(event){
         event.preventDefault();
+        let helper = new DateHelper();
+        let data = helper.textoParaData(this._inputData.value)
 
-        let data = new Date(...
-            this._inputData.value
-            .split('-')
-            .map((item,indice) => item - indice % 2)
-        )
-        console.log(this._inputData.value);
-        console.log(data);
-    
-        // let negociacao = new Negociacao(
-        //     this._inputData.value,
-        //     this._inputQuantidade.value,
-        //     this._inputValor.value
-        // );
-        // console.log(negociacao);
+        let negociacao = new Negociacao(
+            data,
+            this._inputQuantidade.value,
+            this._inputValor.value
+        );
+        console.log(negociacao);
+        console.log(helper.dataParaTexto(negociacao.data))
     }
 }
