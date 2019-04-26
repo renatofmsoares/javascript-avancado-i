@@ -10,6 +10,8 @@ class NegociacaoController {
     adiciona(event){
         event.preventDefault();
         this._listaNegociacoes.adiciona(this._criaNegociacao());
+        //Tentando manipular a lista pela referencia
+        //this._listaNegociacoes.negociacoes.length = 0;
         this._limpaFormulario();
         console.log(this._listaNegociacoes)
     }
