@@ -9,16 +9,17 @@ class NegociacaoController {
 
     adiciona(event){
         event.preventDefault();
-        let data = DateHelper.textoParaData(this._inputData.value)
+        this._listaNegociacoes.adiciona(this._criaNegociacao());
+        this._limpaFormulario();
+        console.log(this._listaNegociacoes)
+    }
 
-        let negociacao = new Negociacao(
-            data,
+    _criaNegociacao() {
+        return new Negociacao(
+            DateHelper.textoParaData(this._inputData.value),
             this._inputQuantidade.value,
             this._inputValor.value
         );
-        this._listaNegociacoes.adiciona(negociacao);
-        this._limpaFormulario();
-        console.log(this._listaNegociacoes)
     }
 
     _limpaFormulario() {
