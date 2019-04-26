@@ -3,7 +3,6 @@ class Mensagem {
         this._texto = texto;
     }
     get texto() {
-        alert(this._texto);
         return this._texto;
     }
 
