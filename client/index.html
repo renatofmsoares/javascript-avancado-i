@@ -46,35 +46,19 @@
     
     <div id="negociacoesView"></div>
     
-    <!-- <script src="js/index.js"></script>     -->
-    <script src="js/app/views/View.js"></script>
-    <script src="js/app/views/NegociacoesView.js"></script>
-    <script src="js/app/views/MensagemView.js"></script>
-    <script src="js/app/models/Negociacao.js"></script>    
-    <script src="js/app/models/ListaNegociacoes.js"></script>
-    <script src="js/app/models/Mensagem.js"></script>
+    <script src="js/app/models/Negociacao.js"></script>
     <script src="js/app/controllers/NegociacaoController.js"></script>
     <script src="js/app/helpers/DateHelper.js"></script>
+    <script src="js/app/models/ListaNegociacoes.js"></script>
+    <script src="js/app/views/View.js"></script>
+    <script src="js/app/views/NegociacoesView.js"></script>
+    <script src="js/app/models/Mensagem.js"></script>
+    <script src="js/app/views/MensagemView.js"></script>
     <script src="js/app/services/ProxyFactory.js"></script>
+    <script src="js/app/helpers/Bind.js"></script>
     <script>
         let negociacaoController = new NegociacaoController();
-        
-        let lista = new Proxy(new ListaNegociacoes(), {
-            get: function(target, prop, receiver){
-
-                if(['adiciona','esvazia'].includes(prop) && typeof(target[prop]) == typeof(Function)) {
-                    return function() {
-                        // console.log(`A propriedade "${prop}" foi alterada em "${target[prop]}"`);
-                        Reflect.apply(target[prop], target, arguments);
-                    }
-                }
-                
-                return Reflect.get(target, prop, receiver);
-            }
-        });
-
-        lista.adiciona(new Negociacao(new Date(),1,100));
-        lista.esvazia();
     </script>
+    
 </body>
 </html>
