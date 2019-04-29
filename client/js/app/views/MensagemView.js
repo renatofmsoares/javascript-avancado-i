@@ -4,6 +4,9 @@ class MensagemView extends View {
     }
 
     template(model) {
+        console.log(model);
+        console.log(this.texto);
+        
         return `<p class="alert alert-info">${model.texto}</p>`;
     }
 }
