@@ -56,9 +56,16 @@
     <script src="js/app/controllers/NegociacaoController.js"></script>
     <script src="js/app/helpers/DateHelper.js"></script>
     <script>
-
         let negociacaoController = new NegociacaoController();
-    
+        let negociacao = new Proxy(new Negociacao(new Date(),1,11), {
+            get: function(target, prop, receiver){
+                console.log(`A propriedade "${prop}" foi inteceptada`);
+                return Reflect.get(target, prop, receiver);
+            }
+        });
+
+        console.log(negociacao.quantidade);
+        console.log(negociacao.valor);
     </script>
 </body>
 </html>
